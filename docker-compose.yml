@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  cs2-server1:
+    build:
+      context: cs2-server-image
+    network_mode: "host"
+    # ports:
+    #   - "27015:27015"
+    env_file:
+      - .env
+    volumes:
+      - "./steam-login-data:/root/Steam"
+      - "./cs2-data:/root/cs2-dedicated"
+
+  # rconpanel:
+  #   image: soren90/rcon-panel
+  #   ports:
+  #     - "3000:3000"
+  #   restart: unless-stopped
