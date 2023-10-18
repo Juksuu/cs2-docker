@@ -28,7 +28,9 @@ services:
       - "./cs2-data:/root/cs2-dedicated"
 
   rconpanel:
-    image: soren90/rcon-panel
+    image: rcon-panel
+    volumes:
+      - "./rcon-panel-db:/usr/src/app/db"
     ports:
       - "3000:3000"
     restart: unless-stopped

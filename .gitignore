@@ -1,3 +1,5 @@
 .env
 cs2-data
 steam-login-data
+rcon-panel-db
+cs2-rcon-panel
