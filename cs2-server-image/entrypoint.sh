@@ -1,7 +1,7 @@
 #!/bin/bash
 
 steamcmd +force_install_dir /root/${STEAMAPPDIR} \
-    +login ${STEAMUSER} \
+    +login anonymous \
     +app_update ${STEAMAPPID} \
     +quit
 

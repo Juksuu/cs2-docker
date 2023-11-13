@@ -4,13 +4,12 @@ ENV STEAMAPPID 730
 ENV STEAMAPP cs2
 ENV STEAMAPPDIR "${STEAMAPP}-dedicated"
 
+RUN dpkg --add-architecture i386 \
+        && apt-get update -y \
+        && apt-get install -y --no-install-recommends libicu-dev
+
 COPY entrypoint.sh ./entrypoint.sh
 
-RUN mkdir -p "${STEAMAPPDIR}" \
-        && mkdir -p /root/.steam/sdk64 \
-        && mkdir -p /root/.steam/sdk32
-
-RUN ln -s /root/.local/share/Steam/steamcmd/linux64/steamclient.so /root/.steam/sdk64/ \
-        && ln -s /root/.local/share/Steam/steamcmd/linux32/steamclient.so /root/.steam/sdk32/
+RUN mkdir -p "${STEAMAPPDIR}"
 
 ENTRYPOINT ["./entrypoint.sh"]

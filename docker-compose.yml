@@ -11,26 +11,14 @@ services:
     env_file:
       - .env
     volumes:
-      - "./steam-login-data:/root/Steam"
       - "./cs2-data:/root/cs2-dedicated"
+      - "./cs2-addons:/root/cs2-dedicated/game/csgo/addons"
 
-  server2:
-    build:
-      context: cs2-server-image
-    ports:
-      - "27025:27015/udp"
-      - "27025:27015/tcp"
-      - "27030:27020/udp"
-    env_file:
-      - .env
-    volumes:
-      - "./steam-login-data:/root/Steam"
-      - "./cs2-data:/root/cs2-dedicated"
-
-  rconpanel:
-    image: rcon-panel
-    volumes:
-      - "./rcon-panel-db:/usr/src/app/db"
-    ports:
-      - "3000:3000"
-    restart: unless-stopped
+  # rconpanel:
+  #   build:
+  #     context: cs2-rcon-panel
+  #   volumes:
+  #     - "./rcon-panel-db:/usr/src/app/db"
+  #   ports:
+  #     - "3000:3000"
+  #   restart: unless-stopped
