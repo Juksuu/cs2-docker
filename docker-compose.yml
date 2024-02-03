@@ -3,7 +3,7 @@ version: "3.7"
 services:
   server1:
     build:
-      context: cs2-server-image
+      context: matchup-image
     ports:
       - "27015:27015/udp"
       - "27015:27015/tcp"
@@ -12,13 +12,3 @@ services:
       - .env
     volumes:
       - "./cs2-data:/root/cs2-dedicated"
-      - "./cs2-addons:/root/cs2-dedicated/game/csgo/addons"
-
-  # rconpanel:
-  #   build:
-  #     context: cs2-rcon-panel
-  #   volumes:
-  #     - "./rcon-panel-db:/usr/src/app/db"
-  #   ports:
-  #     - "3000:3000"
-  #   restart: unless-stopped
