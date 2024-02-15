@@ -4,8 +4,8 @@ CS2 docker images
 ## Versions
 There are two different versions
 
-* juksuu/cs2: Vanilla cs2 server
-* juksuu/cs2-matchup: Cs2 server with [MatchUp](https://github.com/Juksuu/MatchUp) plugin
+* juksuu/cs2:latest (Vanilla cs2 server)
+* juksuu/cs2:matchup (Cs2 server with [MatchUp](https://github.com/Juksuu/MatchUp) plugin)
 
 ## Environment variables
 
@@ -57,6 +57,6 @@ File prefix for backup file. The whole pattern for the file is %prefix%_round%ro
 
 #### MATCHUP_VERSION
 
-Default: v0.1.0
+Default: v0.2.0
 
 Change version for MatchUp plugin
