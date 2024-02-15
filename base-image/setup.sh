@@ -18,7 +18,8 @@ start() {
         +game_alias ${GAME_MODE-"competitive"} \
         +rcon_password ${RCON_PASS-"changeme"} \
         +sv_hibernate_when_empty ${HIBERNATE_WHEN_EMPTY-0} \
-        +tv_enable ${ENABLE_TV-0}
+        +tv_enable ${ENABLE_TV-0} \
+        +mp_backup_round_file ${BACKUP_FILE_PREFIX-"backup"}
 }
 
 if [ ! -z $1 ]; then

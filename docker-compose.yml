@@ -10,5 +10,7 @@ services:
       - "27020:27020/udp"
     env_file:
       - .env
+    environment:
+      BACKUP_FILE_PREFIX: "server1_backup"
     volumes:
       - "./cs2-data:/root/cs2-dedicated"
