@@ -57,6 +57,6 @@ File prefix for backup file. The whole pattern for the file is %prefix%_round%ro
 
 #### MATCHUP_VERSION
 
-Default: v0.2.0
+Default: v0.4.0
 
 Change version for MatchUp plugin

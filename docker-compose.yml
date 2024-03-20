@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   server1:
+    image: juksuu/cs2:matchup
     build:
       context: matchup-image
     ports:
