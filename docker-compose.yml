@@ -5,6 +5,7 @@ services:
     image: juksuu/cs2:matchup
     build:
       context: matchup-image
+    pull_policy: if_not_present
     ports:
       - "27015:27015/udp"
       - "27015:27015/tcp"

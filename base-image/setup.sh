@@ -17,6 +17,7 @@ start() {
         +map ${STARTING_MAP-"de_mirage"} \
         +game_alias ${GAME_MODE-"competitive"} \
         +rcon_password ${RCON_PASS-"changeme"} \
+        +sv_password ${SERVER_PASS-""} \
         +sv_hibernate_when_empty ${HIBERNATE_WHEN_EMPTY-0} \
         +tv_enable ${ENABLE_TV-0} \
         +mp_backup_round_file ${BACKUP_FILE_PREFIX-"backup"}

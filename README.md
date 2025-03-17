@@ -39,6 +39,13 @@ Default: changeme
 Rcon password to use for the server
 
 
+#### SERVER_PASS
+
+Default:
+
+Password to use for the server
+
+
 #### ENABLE_TV
 
 Default: 0
