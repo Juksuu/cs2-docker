@@ -10,6 +10,8 @@ install_and_update() {
 start() {
     cd ${HOME}/${STEAMAPPDIR}/game/bin/linuxsteamrt64
 
+    export LD_LIBRARY_PATH="${HOME}/${STEAMAPPDIR}/game/bin/linuxsteamrt64":${LD_LIBRARY_PATH}
+
     ./cs2 -dedicated \
         -console \
         -usercon \
