@@ -2,7 +2,7 @@
 
 setup=$HOME/setup.sh
 
-base_folder=${HOME}/${STEAMAPPDIR}/game/csgo
+base_folder=${HOME}/${STEAM_APP_DIR}/game/csgo
 addons_folder=$base_folder/addons
 gameinfo=$base_folder/gameinfo.gi
 

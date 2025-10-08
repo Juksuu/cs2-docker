@@ -1,16 +1,39 @@
 #!/bin/bash
 
 install_and_update() {
-    steamcmd +force_install_dir ${HOME}/${STEAMAPPDIR} \
-        +login anonymous \
-        +app_update ${STEAMAPPID} \
-        +quit
+    ## SteamCMD can fail to download
+    ## Retry logic
+    MAX_ATTEMPTS=3
+    attempt=0
+    while [[ $return_code != 0 ]] && [[ $attempt -lt $MAX_ATTEMPTS ]]; do
+        ((attempt+=1))
+        if [[ $attempt -gt 1 ]]; then
+            echo "Retrying install, attempt ${attempt}"
+            # Stale appmanifest data can lead for HTTP 401 errors when requesting old
+            # files from SteamPipe CDN
+            echo "Removing steamapps (appmanifest data)..."
+            rm -rf "${STEAM_APP_DIR}/steamapps"
+        fi
+
+        steamcmd \
+            +force_install_dir ${HOME}/${STEAM_APP_DIR} \
+            +@bClientTryRequestManifestWithoutCode 1 \
+            +login anonymous \
+            +app_update ${STEAM_APP_ID} \
+            +quit
+
+        return_code=$?
+    done
+
+    if [[ $return_code != 0 ]]; then
+        exit $return_code
+    fi
 }
 
 start() {
-    cd ${HOME}/${STEAMAPPDIR}/game/bin/linuxsteamrt64
+    cd ${HOME}/${STEAM_APP_DIR}/game/bin/linuxsteamrt64
 
-    export LD_LIBRARY_PATH="${HOME}/${STEAMAPPDIR}/game/bin/linuxsteamrt64":${LD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH="${HOME}/${STEAM_APP_DIR}/game/bin/linuxsteamrt64":${LD_LIBRARY_PATH}
 
     ./cs2 -dedicated \
         -console \

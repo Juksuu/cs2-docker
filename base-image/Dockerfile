@@ -1,10 +1,8 @@
 FROM steamcmd/steamcmd
 
-ENV STEAMAPPID=730
-ENV STEAMAPP=cs2
-ENV STEAMAPPDIR="${STEAMAPP}-dedicated"
-
-WORKDIR $HOME
+ENV STEAM_APP=cs2
+ENV STEAM_APP_ID=730
+ENV STEAM_APP_DIR="${STEAM_APP}-dedicated"
 
 RUN dpkg --add-architecture i386 \
             && apt-get update -y \
@@ -13,6 +11,6 @@ RUN dpkg --add-architecture i386 \
 
 COPY setup.sh .
 
-RUN mkdir -p ${STEAMAPPDIR}
+RUN mkdir -p ${STEAM_APP_DIR}
 
 ENTRYPOINT ["./setup.sh"]
