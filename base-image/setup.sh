@@ -28,20 +28,6 @@ install_and_update() {
     if [[ $return_code != 0 ]]; then
         exit $return_code
     fi
-
-
-    update_laucher_check
-}
-
-update_laucher_check() {
-    launcher_file=${HOME}/${STEAM_APP_DIR}/game/cs2.sh
-    launcher_check_line='if \[ "$VERSION_CODENAME" != "sniper" \]; then'
-    launcher_updated_check='if \[ "$*" == *"-dedicated"* \] \&\& \[ "$VERSION_CODENAME" != "sniper" \]; then'
-
-    if ! grep -q "\-dedicated" $launcher_file; then
-        echo "updating cs2.sh"
-        sed -i "s:$launcher_check_line:$launcher_updated_check:" $launcher_file
-    fi
 }
 
 start() {
