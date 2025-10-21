@@ -1,7 +1,5 @@
-version: "3.7"
-
 services:
-  server1:
+  server-matchup:
     image: juksuu/cs2:matchup
     build:
       context: matchup-image
@@ -13,6 +11,22 @@ services:
     env_file:
       - .env
     environment:
-      BACKUP_FILE_PREFIX: "server1_backup"
+      BACKUP_FILE_PREFIX: "server_matchup_backup"
     volumes:
       - "./cs2-data:/root/cs2-dedicated"
+
+  # server-base:
+  #   image: juksuu/cs2
+  #   build:
+  #     context: base-image
+  #   pull_policy: if_not_present
+  #   ports:
+  #     - "27015:27015/udp"
+  #     - "27015:27015/tcp"
+  #     - "27020:27020/udp"
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     BACKUP_FILE_PREFIX: "server_base_backup"
+  #   volumes:
+  #     - "./cs2-data:/root/cs2-dedicated"
