@@ -43,7 +43,8 @@ start() {
         +sv_password ${SERVER_PASS-""} \
         +sv_hibernate_when_empty ${HIBERNATE_WHEN_EMPTY-0} \
         +tv_enable ${ENABLE_TV-0} \
-        +mp_backup_round_file ${BACKUP_FILE_PREFIX-"backup"}
+        +mp_backup_round_file ${BACKUP_FILE_PREFIX-"backup"} \
+        +sv_deltaticks_enforce ${DELTA_TICKS_ENFORCE-2}
 }
 
 if [ ! -z $1 ]; then

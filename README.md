@@ -46,6 +46,14 @@ Default:
 Password to use for the server
 
 
+#### HIBERNATE_WHEN_EMPTY
+
+Default: 0
+
+Enable or disable server hibernation 0|1
+Previously this has caused a crash if set to 1
+
+
 #### ENABLE_TV
 
 Default: 0
@@ -58,6 +66,17 @@ Enable or disable cs tv 0|1
 Default: backup
 
 File prefix for backup file. The whole pattern for the file is %prefix%_round%round%.txt
+
+
+#### DELTA_TICKS_ENFORCE
+
+Default: 2
+
+Sets the sv_deltaticks_enforce value which controls wether to kick clients if they do not ack delta ticks in order 0|1|2
+
+0 - Do not kick
+1 - Kick only TV clients
+2 - Kick all clients
 
 
 ### MatchUp
